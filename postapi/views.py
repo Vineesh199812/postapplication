@@ -28,6 +28,26 @@ class UserProfileView(ModelViewSet):
         else:
             return Response(data=serializer.errors)
 
+    # localhost:8000/api/v1/users/profile/intpk/follow
+    @action(methods=["post"],detail=True)
+    def follow(self,request,*args,**kwargs):
+        id=kwargs.get("pk")
+        user_to_follow=User.objects.get(id=id)
+        profile=UserProfile.objects.get(user=request.user)
+        profile.followings.add(user_to_follow)
+        return Response({"message":"okay"})
+
+    #api/v1/users/profile/followings
+    #get method
+    @action(methods=["get"],detail=False)
+    def my_followings(self,request,*args,**kwargs):
+        user=request.user
+        user_profile=UserProfile.objects.get(user=user)
+        followings=user_profile.followings.all()
+        # get_followings=request.user.following.all()    #used relaated name as "following" to relate parent to child
+        serializer=UserSerializer(followings,many=True)
+        return Response(data=serializer.data)
+
 class PostView(ModelViewSet):
     serializer_class = PostSerializer
     queryset = Posts.objects.all()

@@ -16,14 +16,17 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UserProfileSerializer(serializers.ModelSerializer):
     user=UserSerializer(read_only=True)
+    followings=UserSerializer(read_only=True,many=True)
     class Meta:
         model=UserProfile
-        fields=[
-            "user",
-            "profile_pic",
-            "bio",
-            "cover_pic"
-        ]#"__all__"
+        fields="__all__"
+        # [
+        #     "user",
+        #     "profile_pic",
+        #     "bio",
+        #     "cover_pic",
+        #     "followings"
+        # ]#"__all__"
 # or we can delete fields and give exclude=("followings",)
 
     def create(self, validated_data):

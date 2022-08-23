@@ -42,4 +42,4 @@ class Comments(models.Model):
 #following
 #suggestions,
 
-#localhost:8000/api/v1/user/followings
+#localhost:8000/api/v1/user/intpk/follow
