@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'postapi',
     'rest_framework_simplejwt',
+    'social',
 ]
 
 
