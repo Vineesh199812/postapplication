@@ -8,10 +8,15 @@ class LoginView(View):
 
     def get(self,request,*args,**kwargs):
         return render(request,"login.html")
-    # def post(self,request,*args,**kwargs):
-    #     pass
+    def post(self,request,*args,**kwargs):
+        print(request.POST)
+        return render(request, "login.html")
+
 
 class RegisterView(View):
 
     def get(self,request,*args,**kwargs):
         return render(request,"registration.html")
+    def post(self,request,*args,**kwargs):
+        print(request.POST)
+        return render(request, "registration.html")
