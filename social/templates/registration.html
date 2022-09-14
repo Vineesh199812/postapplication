@@ -14,21 +14,22 @@
         <div class="col-6">
             <form action="" class="border mt-5" method="post">
                 {%csrf_token%}
-                <div class="mb-3">
-                    <input type="text" name="firstname" placeholder="enter firstname" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <input type="text" name="lastname" placeholder="enter lastname" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <input type="emai" name="email" placeholder="enter email" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <input type="text" name="username" placeholder="enter username" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <input type="password" name="password" placeholder="enter password" class="form-control">
-                </div>
+                {{form.as_p}}
+<!--                <div class="mb-3">-->
+<!--                    <input type="text" name="firstname" placeholder="enter firstname" class="form-control">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <input type="text" name="lastname" placeholder="enter lastname" class="form-control">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <input type="emai" name="email" placeholder="enter email" class="form-control">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <input type="text" name="username" placeholder="enter username" class="form-control">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <input type="password" name="password" placeholder="enter password" class="form-control">-->
+<!--                </div>-->
                 <div class="mb-3">
                     <button type="submit" class="btn btn-info">SignUp</button>
                 </div>
